@@ -1,0 +1,29 @@
+{
+	"manifest_version":3,
+	"name":"Screen Time Health",
+	"description":"Screen Time Heath : This plugin will help track and alert you on time spent on mindless scrolling!",
+	"version":"0.0.4",
+	"permissions":["storage","unlimitedStorage"],
+	"icons":{
+		"16" :"img/onlylogo.png",
+		"48" :"img/onlylogo.png",
+		"128":"img/onlylogo.png"
+	},
+	"background":{
+		"service_worker":"service_worker.js"
+	},
+	"content_scripts":[{
+		"matches":["<all_urls>"],
+		"js":["js/lib/jquery.min.js","js/content.js"],
+		"all_frames":true
+	}],
+	"action":{
+		"default_title":"Screen Time Health: Track your daily scrolling for a healthier wellbeing!",
+		"default_popup":"html/popup.html",
+		"default_icon": "img/onlylogo.png"
+	},
+  "web_accessible_resources":[{
+  	"resources": ["/img/*"],
+    "matches": ["<all_urls>"]
+  }]
+}
